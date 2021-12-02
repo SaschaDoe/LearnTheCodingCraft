@@ -13,9 +13,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blog.Server", "Implementati
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blog.Shared", "Implementation\Blog\Shared\Blog.Shared.csproj", "{DC6BC6AC-495C-42BD-B983-E9A8AD95513F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.Data", "Implementation\Blog\Blog.Data\Blog.Data.csproj", "{E99F506A-2308-4769-AF56-5BCC0C07C171}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blog.Data", "Implementation\Blog\Blog.Data\Blog.Data.csproj", "{E99F506A-2308-4769-AF56-5BCC0C07C171}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.Data.Tests", "Tests\Blog\Blog.Data.Tests\Blog.Data.Tests.csproj", "{1C09E755-FC0C-4150-9901-067DB608D994}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blog.Data.Tests", "Tests\Blog\Blog.Data.Tests\Blog.Data.Tests.csproj", "{1C09E755-FC0C-4150-9901-067DB608D994}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{AFC93509-469E-49C4-98B6-573958936FA4}"
+	ProjectSection(SolutionItems) = preProject
+		Journey.txt = Journey.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

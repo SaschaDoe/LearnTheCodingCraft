@@ -1,0 +1,27 @@
+02.12.2021
+
+How to Test EF?
+Isolating vs End-To-End tests
+I think end-to-end is better to know if the database actually works.
+https://stackoverflow.com/a/34959153/17052084 
+Assert.IsNotNull zeigt ganz gut dass EF einem sagt wenn was schief geht. 
+Andererseits gibt es manchmal logik die eine speicherung mit sich zieht. 
+Einfach zu schauen ob es EF schafft aus einem User Account die namen raus zu ziehen 
+empfinde ich als schwachsinn.
+
+Es ist ein Integration test auﬂer wenn wirklich logik verwendet wird zum speichern.
+
+Wie man EF bentuzt
+https://www.entityframeworktutorial.net/
+
+If you do not specify the parameter in the base constructor of the context class then 
+it creates a database in your local SQLEXPRESS server with 
+a name that matches your {Namespace}.{Context class name}. For example, 
+EF will create a database named SchoolDataLayer.Context for the following context class:
+
+CreateDatabaseIfNotExists: This is the default initializer. 
+As the name suggests, it will create the database if none exists as per the configuration. 
+However, if you change the model 
+class and then run the application with this initializer, then it will throw an exception. 
+
+https://www.youtube.com/watch?v=Fbf_ua2t6v4
