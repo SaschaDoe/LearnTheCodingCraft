@@ -15,5 +15,7 @@ namespace Blog.Data.Categories
         {
             Database.EnsureCreated();
         }
+
+        
     }
 }

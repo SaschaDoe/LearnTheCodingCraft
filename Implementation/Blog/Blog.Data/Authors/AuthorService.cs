@@ -8,8 +8,8 @@ namespace Blog.Data.Authors
 {
     public class AuthorService
     {
-        private AuthorContext _authorContext;
-        public AuthorService(AuthorContext authorContext)
+        private Context _authorContext;
+        public AuthorService(Context authorContext)
         {
             _authorContext = authorContext;
         }

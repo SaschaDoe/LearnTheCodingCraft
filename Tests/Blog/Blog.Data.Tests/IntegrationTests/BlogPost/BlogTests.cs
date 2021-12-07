@@ -1,3 +1,4 @@
+using Blog.Data.Authors;
 using Blog.Data.BlogPost;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -13,7 +14,7 @@ namespace Blog.Data.Tests
         [TestInitialize]
         public void DeleteDatabase()
         {
-            var blogPostContext = new BlogPostContext();
+            var blogPostContext = new Context();
 
             blogPostContext.DeleteAll();
         }
@@ -22,14 +23,26 @@ namespace Blog.Data.Tests
         [TestCategory("Integration")]
         public void AddNewBlogAsync()
         {
-            var blogPostContext = new BlogPostContext();
+            var blogPostContext = new Context();
             var blogPostService = new BlogPostService(blogPostContext);
+
+            var author = new Author
+            {
+                Name = "Author Name",
+                Description = "Bla"
+            };
+
+            var authors = new List<Author>
+            {
+                author,
+            };
 
             var blogPost = new Post()
             {
                 Title = "Title",
                 CreatedDate = DateTime.Now,
                 Content = "Content...",
+                Authors = authors
 
             };
             blogPostService.AddBlogPost(blogPost);
@@ -37,13 +50,14 @@ namespace Blog.Data.Tests
             var actualPosts = blogPostService.GetAllBlogPosts();
             Assert.AreEqual(1, actualPosts.Count);
             Assert.AreEqual("Title", actualPosts[0].Title);
+            Assert.AreEqual("Author Name", actualPosts[0].Authors[0].Name);
         }
 
         [TestMethod]
         [TestCategory("Integration")]
         public void GetBlog()
         {
-            var blogPostContext = new BlogPostContext();
+            var blogPostContext = new Context();
             var blogPostService = new BlogPostService(blogPostContext);
 
             var blogPostOne = new Post()
@@ -74,7 +88,7 @@ namespace Blog.Data.Tests
         [TestCategory("Integration")]
         public void GetPosts_begin_to_end()
         {
-            var blogPostContext = new BlogPostContext();
+            var blogPostContext = new Context();
             var blogPostService = new BlogPostService(blogPostContext);
 
             var blogPostOne = new Post()

@@ -8,8 +8,8 @@ namespace Blog.Data.BlogPost
 {
     public class BlogPostService
     {
-        private BlogPostContext _blogPostContext;
-        public BlogPostService(BlogPostContext blogPostContext)
+        private Context _blogPostContext;
+        public BlogPostService(Context blogPostContext)
         {
             _blogPostContext = blogPostContext;
         }
@@ -20,25 +20,7 @@ namespace Blog.Data.BlogPost
             _blogPostContext.SaveChanges();
         }
 
-        /// <summary>
-        /// Get all posts and delete them
-        /// </summary>
-        /// <returns></returns>
-        public BlogPostContext DeleteAllPosts()
-        {
-            using (var context = _blogPostContext)
-            {
-                var allPosts = _blogPostContext.Posts;
-
-                foreach(var post in allPosts)
-                {
-                    _blogPostContext.Posts.Remove(post);
-                }
-
-                _blogPostContext.SaveChanges();
-                return context;
-            }
-        }
+       
 
         public List<Post> GetAllBlogPosts()
         {

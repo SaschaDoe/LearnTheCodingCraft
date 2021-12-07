@@ -20,6 +20,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{AFC93509-469E-49C4-98B6-573958936FA4}"
 	ProjectSection(SolutionItems) = preProject
 		Journey.txt = Journey.txt
+		Requirements.txt = Requirements.txt
 	EndProjectSection
 EndProject
 Global

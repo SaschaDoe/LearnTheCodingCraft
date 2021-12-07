@@ -1,0 +1,6 @@
+Scenario 1 Add Post
+
+Add Author
+Add Category
+Add Post
+Add and Create Tags

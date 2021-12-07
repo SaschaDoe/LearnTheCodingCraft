@@ -14,7 +14,7 @@ namespace Blog.Data.Tests.Authors
         [TestInitialize]
         public void DeleteDatabase()
         {
-            var authorContext = new AuthorContext();
+            var authorContext = new Context();
 
             authorContext.DeleteAll();
         }
@@ -23,9 +23,9 @@ namespace Blog.Data.Tests.Authors
         [TestCategory("Integration")]
         public void AddAuthor()
         {
-            var authorContext = new AuthorContext();
+            var authorContext = new Context();
             var authorService = new AuthorService(authorContext);
-
+            
             var author = new Author()
             {
                 Name = "Muster",
