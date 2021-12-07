@@ -62,5 +62,10 @@ namespace Blog.Data.BlogPost
 
             return null;
         }
+
+        public List<Post> GetBlogPost(int begin, int end)
+        {
+            return _blogPostContext.Posts.Skip(begin).Take(end).ToList();
+        }
     }
 }

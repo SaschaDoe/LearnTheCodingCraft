@@ -10,7 +10,13 @@ namespace Blog.Data.Tests
     [TestClass]
     public class BlogTests
     {
+        [TestInitialize]
+        public void DeleteDatabase()
+        {
+            var blogPostContext = new BlogPostContext();
 
+            blogPostContext.DeleteAll();
+        }
 
         [TestMethod]
         [TestCategory("Integration")]
@@ -31,8 +37,6 @@ namespace Blog.Data.Tests
             var actualPosts = blogPostService.GetAllBlogPosts();
             Assert.AreEqual(1, actualPosts.Count);
             Assert.AreEqual("Title", actualPosts[0].Title);
-
-            blogPostContext.DeleteAll();
         }
 
         [TestMethod]
@@ -64,6 +68,38 @@ namespace Blog.Data.Tests
 
             Assert.IsNotNull(post);
             Assert.AreEqual("Title1", post.Title);
+        }
+
+        [TestMethod]
+        [TestCategory("Integration")]
+        public void GetPosts_begin_to_end()
+        {
+            var blogPostContext = new BlogPostContext();
+            var blogPostService = new BlogPostService(blogPostContext);
+
+            var blogPostOne = new Post()
+            {
+                Title = "Title1",
+                CreatedDate = DateTime.Now,
+                Content = "Content...",
+
+            };
+            blogPostService.AddBlogPost(blogPostOne);
+
+            var blogPostTwo = new Post()
+            {
+                Title = "Title2",
+                CreatedDate = DateTime.Now,
+                Content = "Content...",
+
+            };
+            blogPostService.AddBlogPost(blogPostTwo);
+
+            var posts = blogPostService.GetBlogPost(0,2);
+
+            Assert.IsNotNull(posts);
+            Assert.AreEqual(2, posts.Count);
+            Assert.AreEqual("Title1", posts[0].Title);
         }
     }
 }
